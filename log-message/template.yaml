@@ -1,7 +1,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: Message Logger
+  name: message-logger
   title: Writes a message into the log
   description: Writes a message into the log
   tags:
@@ -10,20 +10,20 @@ spec:
   owner: janus-authors
   system: janus-idp
   type: service
-
   parameters:
-    - title: Log Message entry 
+    - title: Log Message Entry
       required:
         - logMsg
       properties:
         logMsg:
           title: Enter Log Message
           type: string
-          description: Provide Message for logging
+          description: Provide a message to log
   steps:
     - id: log
-      name: Write message to log file 
+      name: Write Message to Log File
       action: debug:log
       input:
-        message: ${{parameters.logMsg}}
+        message: ${{ parameters.logMsg }}
+
   
