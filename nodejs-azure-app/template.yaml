@@ -1,12 +1,14 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: Node.js-Azure-template
-  title: Create a Node.js Web App in Azure DevOps 
-  description: Create a starter Node.js Web application
+  name: nodejs-azure-app
+  title: Create a Node.js web application in Azure DevOps
+  description: Create a starter Node.js application and deploy it to Azure
   tags:
     - recommended
-    - Node.js
+    - nodejs
+    - javascript
+    - express
 spec:
   owner: janus-authors
   system: janus-idp
@@ -20,7 +22,7 @@ spec:
         - repoName
       properties:
         orgName:
-          title: Organization
+          title: Organisation
           type: string
           description: The Organization that this repo will belong to
         projectName:
@@ -31,7 +33,6 @@ spec:
           title: Repository
           type: string
           description: The name of the repository
-
     - title: Provide information about the new component
       required:
         - owner
@@ -49,7 +50,6 @@ spec:
         owner:
           title: Owner
           type: string
-          description: The owner of the component
           ui:field: EntityPicker
           ui:options:
             catalogFilter:
@@ -59,7 +59,6 @@ spec:
         system:
           title: System
           type: string
-          description: The system that the component belongs to
           ui:field: EntityPicker
           ui:options:
             catalogFilter:
@@ -70,7 +69,6 @@ spec:
           type: number
           default: 3000
           description: Override the port exposed for the application
-
   steps:
     - id: sourceCodeTemplate
       name: Generating the Source Code Component
@@ -78,7 +76,6 @@ spec:
       input:
         url: ./skeleton
         values:
-          # azure devops uses `my-project/my-repo`
           orgName: ${{ parameters.projectName }}
           repoName: ${{ parameters.repoName }}
           owner: ${{ parameters.owner }}
@@ -105,7 +102,7 @@ spec:
           port: ${{ parameters.port }}
           applicationType: website
           sourceControl: dev.azure.com
-
+    
     - id: publish
       name: Publishing to the Source Code Repository
       action: publish:azure
@@ -114,6 +111,7 @@ spec:
         description: ${{ parameters.description }}
         repoUrl: dev.azure.com?owner=${{ parameters.projectName }}&repo=${{ parameters.repoName }}&organization=${{ parameters.orgName }}
         defaultBranch: main
+        token: process.env.TOKEN
 
     - id: register
       name: Registering the Catalog Info Component
