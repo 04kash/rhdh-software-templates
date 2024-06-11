@@ -24,4 +24,4 @@ spec:
       name: Write Message to Log File
       action: debug:log
       input:
-        message: ${{ parameters.logMsg }}
+        message: "Hi"
