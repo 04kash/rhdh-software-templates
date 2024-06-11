@@ -25,21 +25,21 @@ spec:
           title: Wait time
           type: number
           description: Time to wait before logging the message
-        unitTime:
-          title: Time unit
-          type: string
-          enum:
-            - milliseconds
-            - seconds
-            - minutes
-          description: Unit of time for the wait duration
+        # unitTime:
+        #   title: Time unit
+        #   type: string
+        #   enum:
+        #     - milliseconds
+        #     - seconds
+        #     - minutes
+        #   description: Unit of time for the wait duration
 
   steps:
     - id: log-info
       name: Log the wait time duration
       action: debug:log
       input:
-        message: Waiting for ${{parameters.waitTime}} ${{parameters.unitTime}} before logging message
+        message: Waiting for ${{parameters.waitTime}} before logging message
     - id: wait
       name: Wait Step
       action: debug:wait
