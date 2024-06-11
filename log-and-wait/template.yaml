@@ -14,16 +14,11 @@ spec:
     - title: Log Message Entry
       required:
         - logMsg
-        - waitTime
       properties:
         logMsg:
           title: Enter Log Message
           type: string
           description: Provide a message to log
-        waitTime:
-          title: Enter Wait time 
-          type: number
-          description: The the time duration to wait for before logging the message 
   steps:
     - id: log
       name: Write Message to Log File
