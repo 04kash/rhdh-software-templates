@@ -24,4 +24,14 @@ spec:
       name: Write Message to Log File
       action: debug:log
       input:
-        message: "Hi"
+        message: "Hi, Please Wait"
+    - id: wait 
+      name: Wait before logging message
+      action: debug:wait
+      input:
+        seconds: 30
+    - id: log-final
+      name: Write Message to Log
+      action: debug:log
+      input:
+        message: ${{ parameters.logMsg }}
