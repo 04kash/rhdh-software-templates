@@ -30,11 +30,6 @@ spec:
       action: debug:log
       input:
         message: "Hi! Wait"
-    - id: wait
-      name: Wait before logging 
-      action: debug:wait
-      input:
-        seconds: ${{ parameters.waitTime }}
     - id: log
       name: Write Message to Log File
       action: debug:log
