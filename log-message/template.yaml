@@ -21,39 +21,10 @@ spec:
           title: Enter Log Message
           type: string
           description: Provide Message for logging
-        waitTime:
-          title: Wait time
-          type: number
-          description: Time to wait before logging the message
-        # unitTime:
-        #   title: Time unit
-        #   type: string
-        #   enum:
-        #     - milliseconds
-        #     - seconds
-        #     - minutes
-        #   description: Unit of time for the wait duration
 
   steps:
     - id: log-info
       name: Log the wait time duration
       action: debug:log
       input:
-        message: Waiting for ${{parameters.waitTime}} before logging message
-    - id: wait
-      name: Wait Step
-      action: debug:wait
-      input:
-        seconds: ${{parameters.waitTime}}
-          # {{- if eq parameters.unitTime "seconds" }}
-          #   {{ parameters.waitTime }}
-          # {{- elif eq parameters.unitTime "milliseconds" }}
-          #   {{ div parameters.waitTime 1000 }}
-          # {{- elif eq parameters.unitTime "minutes" }}
-          #   {{ mul parameters.waitTime 60 }}
-          # {{- end }}
-    - id: log-msg
-      name: Log Message
-      action: debug:log
-      input:
-        message: ${{parameters.logMsg}}
+        message: Waiting for ${{parameters.logMsg}} before logging message
