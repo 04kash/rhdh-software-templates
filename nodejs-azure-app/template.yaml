@@ -111,14 +111,13 @@ spec:
         description: ${{ parameters.description }}
         repoUrl: dev.azure.com?owner=${{ parameters.projectName }}&repo=${{ parameters.repoName }}&organization=${{ parameters.orgName }}
         defaultBranch: main
-        token: ${{ TOKEN }}
 
     - id: register
       name: Registering the Catalog Info Component
       action: catalog:register
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
-        catalogInfoPath: ./catalog-info.yaml
+        catalogInfoPath: 'catalog-info.yaml'
 
   output:
     links:
