@@ -14,8 +14,6 @@ spec:
     - title: Log Message entry
       required:
         - logMsg
-        - waitTime
-        - unitTime
       properties:
         logMsg:
           title: Enter Log Message
