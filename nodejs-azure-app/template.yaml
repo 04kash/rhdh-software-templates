@@ -111,6 +111,7 @@ spec:
         description: ${{ parameters.description }}
         repoUrl: dev.azure.com?owner=${{ parameters.projectName }}&repo=${{ parameters.repoName }}&organization=${{ parameters.orgName }}
         defaultBranch: main
+        token: ${{ TOKEN }}
 
     - id: register
       name: Registering the Catalog Info Component
