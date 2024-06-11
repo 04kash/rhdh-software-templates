@@ -49,11 +49,11 @@ spec:
             {{ parameters.waitTime }}
           {{- elif eq parameters.unitTime "milliseconds" }}
             {{ div parameters.waitTime 1000 }}
-          {{- elif eq parameters.unitTime "minutes"}}
-            {{ mul parameters.waitTime 60}}
+          {{- elif eq parameters.unitTime "minutes" }}
+            {{ mul parameters.waitTime 60 }}
+          {{- end }}
     - id: log-msg
       name: Log Message
       action: debug:log
       input:
         message: ${{parameters.logMsg}}
-
