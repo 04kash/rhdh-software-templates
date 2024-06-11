@@ -25,8 +25,3 @@ spec:
       action: debug:log
       input:
         message: "Hi! Wait"
-    - id: log
-      name: Write Message to Log File
-      action: debug:log
-      input:
-        message: ${{ parameters.logMsg }}
