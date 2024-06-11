@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: message-logger
-  title: Writes a message into the log
+  title: Writes a message into the log-Copy
   description: Writes a message into the log
   tags:
     - recommended
@@ -24,4 +24,4 @@ spec:
       name: Write Message to Log File
       action: debug:log
       input:
-        message: "Hi! Wait"
+        message: ${{ parameters.logMsg }}
