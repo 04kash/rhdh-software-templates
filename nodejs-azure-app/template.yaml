@@ -78,13 +78,13 @@ spec:
         values:
           orgName: ${{ parameters.projectName }}
           repoName: ${{ parameters.repoName }}
-          # owner: ${{ parameters.owner }}
-          # system: ${{ parameters.system }}
-          # title: ${{ parameters.title }}
-          # description: ${{ parameters.description }}
-          # port: ${{ parameters.port }}
-          # applicationType: website
-          # sourceControl: dev.azure.com
+          owner: ${{ parameters.owner }}
+          system: ${{ parameters.system }}
+          title: ${{ parameters.title }}
+          description: ${{ parameters.description }}
+          port: ${{ parameters.port }}
+          applicationType: website
+          sourceControl: dev.azure.com
 
     - id: catalogTemplate
       name: Generating the Catalog Info Component
