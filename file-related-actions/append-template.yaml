@@ -40,6 +40,8 @@ spec:
       input:
         path: ${{ parameters.path }}
         content: ${{ parameters.content }}
-  
-  output:
-    result: ${{steps.appendFile.output.result}}
+    - id: log
+      name: Log output
+      action: debug:log
+      input:
+        message: ${{steps.appendFile.output.path}}
