@@ -46,6 +46,7 @@ spec:
             to: ${{ parameters.newName }}
     - id: list-all-files
       name: List all files
+      action: debug:log
       input:
         listWorkspace: true
   
