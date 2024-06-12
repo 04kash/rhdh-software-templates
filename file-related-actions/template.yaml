@@ -57,7 +57,7 @@ spec:
         url: https://github.com/${{ parameters.org }}/${{ parameters.repository }}
     - id: write-to-file
       name: Overwrite File Or Create New
-      action: roadiehq:utils:fs:write
+      action: roadiehq:utils:fs:append
       input:
         path: ${{ parameters.path }}
         content: ${{ parameters.content }}
