@@ -54,4 +54,4 @@ spec:
       name: Log parsed data
       action: debug:log
       input:
-        message: 'File Contents: ${{ steps["parsefile"].output.remoteUrl }}'
+        message: 'File Contents: ${{ steps["parsefile"].output.content }}'
