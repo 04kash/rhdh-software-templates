@@ -49,6 +49,9 @@ spec:
       action: roadiehq:utils:fs:parse
       input:
         path: ${{ parameters.path }}
-        parser: ${{ parameters.parser }}
-  output:
-    content: ${{ steps.parsefile.output.content }}
+        # parser: ${{ parameters.parser }}
+    - id: log-message
+      name: Log parsed data
+      action: debug:log
+      input:
+        message: 'File Contents: ${{ steps["parsefile"].output.content }}'
