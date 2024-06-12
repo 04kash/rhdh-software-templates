@@ -46,8 +46,8 @@ spec:
       action: fs:rename
       input:
         files:
-          - from: ${{ parameters.path }}
           - to: ${{ parameters.newName }}
+          - from: ${{ parameters.path }}
     - id: publish-pr
       name: Publish PR
       action: publish:github:pull-request
