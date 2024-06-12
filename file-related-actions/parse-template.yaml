@@ -50,5 +50,5 @@ spec:
       input:
         path: ${{ parameters.path }}
         parser: ${{ parameters.parser }}
-   output:
+  output:
     content: ${{ steps.serialize.output.content }}
