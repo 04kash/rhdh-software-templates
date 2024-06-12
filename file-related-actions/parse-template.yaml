@@ -54,4 +54,4 @@ spec:
       name: Log parsed data
       action: debug:log
       input:
-        message: 'File Contents: ${{ JSON.stringify(steps["parsefile"].output.content, null , 2) }}'
+        message: 'File Contents: ${{ steps["parsefile"].output.content }}'
