@@ -2,8 +2,8 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: message-logger
-  title: Writes a message into the log-Copy
-  description: Writes a message into the log
+  title: Log a message after a specified duration of time.
+  description: Writes a message into the log after waiting for a specified duration of time.
   tags:
     - recommended
 spec:
@@ -23,7 +23,7 @@ spec:
         waitTime:
           title: Enter Wait Time 
           type: number 
-          description: Provide wait time duration
+          description: Provide wait time duration in seconds
   steps:
     - id: log
       name: Write Message to Log File
