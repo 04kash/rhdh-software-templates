@@ -50,8 +50,5 @@ spec:
       input:
         path: ${{ parameters.path }}
         parser: ${{ parameters.parser }}
-    - id: log-message
-      name: Log parsed data
-      action: debug:log
-      input:
-        message: 'File Contents: ${{ steps["parsefile"].output.content }}'
+   output:
+    content: ${{ steps.serialize.output.content }}
