@@ -1,0 +1,37 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: file-manipulation 
+  title: All File Related Actions
+  description: Makes use of all available file related actions
+  tags:
+    - recommended 
+spec:
+  owner: janus-authors
+  system: janus-idp
+  type: service
+  parameters:
+    - title: New File Details
+      required: 
+        - fileName
+        - fileContent
+      properties:
+        fileName:
+          title: Enter file name
+          type: string
+          description: Provide a name for the file to be created 
+        fileContent:
+          title: Enter the new file's contents
+          type: string
+          description: Provide contents for the new file
+  steps:
+    - id: create-file
+      name: Create a New File
+      action: roadiehq:utils:fs:write
+      input:
+        path: ./${{ parameters.fileName }}
+        content: ${{ parameters.fileContent }}
+  output:
+    links:
+      - title: Path
+      - url: ${{ steps.create-file.output.path}}
