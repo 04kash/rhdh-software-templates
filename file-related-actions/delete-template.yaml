@@ -20,10 +20,6 @@ spec:
           title: Repository Organization
           type: string
           description: The Github org that the repository is in
-        pr_branch:
-          title: PR Branch
-          type: string
-          description: The new branch to make a pr from
     - title: File Details
       properties:
         path:
@@ -42,16 +38,8 @@ spec:
       input:
         files:
           - ${{ parameters.path }}
-    - id: publish-pr
-      name: Publish PR
-      action: publish:github:pull-request
-      input:
-        repoUrl: github.com?repo=${{ parameters.repository }}&owner=${{ parameters.org }}
-        branchName: ${{ parameters.pr_branch }}
-        title: Write content to ${{ parameters.path }}
-        description: This PR was created by a Backstage scaffolder task
     - id: log-message
       name: Log PR URL
       action: debug:log
       input:
-        message: 'RemoteURL: ${{ steps["publish-pr"].output.remoteUrl }}'
+        listWorkspace: true
