@@ -57,10 +57,12 @@ spec:
         url: https://github.com/${{ parameters.org }}/${{ parameters.repository }}
     - id: write-to-file
       name: Overwrite File Or Create New
-      action: roadiehq:utils:fs:append
+      action: roadiehq:utils:fs:replace
       input:
-        path: ${{ parameters.path }}
-        content: ${{ parameters.content }}
+        files:
+          - file: './test-write'
+            find: 'Hi'
+            replaceWith: ${{ parameters.content }}
     - id: publish-pr
       name: Publish PR
       action: publish:github:pull-request
