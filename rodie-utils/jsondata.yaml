@@ -9,15 +9,20 @@ spec:
   owner: roadie
   type: service
 
-  parameters: []
+  parameters:
+    - title: Input Data Details
+      properties:
+        inputData:
+          title: Input Data to be Transformed 
+          type: string
+          description: provide input data to be transformed
   steps:
     - id: jsonata
       name: Parse File
       action: roadiehq:utils:jsonata
       input:
-        data:
-          name: "Backstage"
-        expression: '{"result": name & ", hi!"}'
+        data: ${{parameters.inputData}}
+        expression: '$sum(Account.Order.Product.(Price * Quantity))'
   output:
     text:
       - title: Output from roadiehq:utils:jsonata
