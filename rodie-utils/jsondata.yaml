@@ -19,10 +19,10 @@ spec:
           items:
             - item1
         expression: '$ ~> | $ | { "items": [items, "item2"] }|'
-    - id: Log
-      name: log output
-      action: debug:log
-      input:
-        message: ${{ steps.jsonata.output.result }}
+    # - id: Log
+    #   name: log output
+    #   action: debug:log
+    #   input:
+    #     message: ${{ steps.jsonata.output.result }}
   output:
     result: ${{ steps.jsonata.output.result }}
