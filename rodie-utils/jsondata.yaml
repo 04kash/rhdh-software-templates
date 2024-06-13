@@ -12,10 +12,15 @@ spec:
   parameters:
     - title: Input Data Details
       properties:
-        inputData:
-          title: Input Data to be Transformed 
+        content:
+          title: JSON
           type: string
-          description: provide input data to be transformed
+          description: JSON to merge in
+          ui:widget: textarea
+          ui:options:
+            rows: 10
+          ui:placeholder: |
+            {"hello": "world"}
   steps:
     - id: jsonata
       name: Parse File
