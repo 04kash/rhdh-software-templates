@@ -20,12 +20,12 @@ spec:
           title: Repository Organization
           type: string
           description: The Github org that the repository is in
-    - title: YAML file details
+    - title: JSON file details
       properties:
         path:
           title: Path
           type: string
-          description: Workspace path to the yaml file
+          description: Workspace path to the json file
   steps:
     - id: fetch-repo
       name: Fetch repo
