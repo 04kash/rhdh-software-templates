@@ -1,0 +1,23 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: serialize
+  title: Jsonata
+  description: Example template to serialize data to the JSON format
+spec:
+  owner: roadie
+  type: service
+
+  parameters: []
+  steps:
+    - id: serialize
+      name: serialize
+      action: roadiehq:utils:serialize:json
+      input:
+        data:
+          hello: world
+    - id: Log
+      name: log output
+      action: debug:log
+      input:
+        message: ${{ steps.serialize.output.serialized }}
