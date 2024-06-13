@@ -22,8 +22,8 @@ spec:
       action: roadiehq:utils:jsonata
       input:
         data: ${{parameters.inputData}}
-        expression: '$sum(Account.Order.Product.(Price * Quantity))'
+        expression: '$ ~> | $ | { "items": [items, "item2"] }|'
   output:
     text:
       - title: Output from roadiehq:utils:jsonata
-        content: ${{parameters.inputData}}
+        content: ${{ steps.jsonata.output.result }}
