@@ -23,5 +23,5 @@ spec:
   output:
     text:
       - title: custom title
-        content: ${{ steps.serialize.output.content }}
+        content: "hi"
 
