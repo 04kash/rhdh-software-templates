@@ -16,5 +16,8 @@ spec:
       input:
         data:
           hello: world
-  output:
-    yaml: ${{ steps.serialize.output.serialized }}
+    - id: Log
+      name: log output
+      action: log:debug
+      input:
+        message: ${{ steps.serialize.output.serialized }}
