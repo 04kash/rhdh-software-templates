@@ -11,7 +11,7 @@ spec:
 
   parameters: []
   steps:
-    - id: jsonata
+    - id: jsondata
       name: Parse File
       action: roadiehq:utils:jsonata
       input:
@@ -23,5 +23,5 @@ spec:
   output:
     text:
       - title: custom title
-        content: ${{ steps.serialize.output.result }}
+        content: ${{ steps.jsondata.output.result }}
 
