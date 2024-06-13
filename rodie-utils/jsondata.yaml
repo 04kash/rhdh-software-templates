@@ -12,7 +12,7 @@ spec:
   parameters:
     - title: Input Data Details
       properties:
-        content:
+        inputData:
           title: JSON
           type: string
           description: JSON to merge in
