@@ -16,9 +16,8 @@ spec:
       action: roadiehq:utils:jsonata
       input:
         data:
-          items:
-            - item1
-        expression: '$ ~> | $ | { "items": [items, "item2"] }|'
+          name: "Backstage"
+        expression: '{"result": name & ", hi!"}'
   output:
     text:
       - title: Output from roadiehq:utils:jsonata
