@@ -2,9 +2,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: merge-json-template
-  title: Merge in JSON
-  description: Merge in some JSON to an existing file and open a pull request for it.
+  name: merge-template
+  title: Merge Content 
+  description: Merge in some content to an existing file and open a pull request for it.
 spec:
   owner: roadie
   type: service
@@ -28,14 +28,9 @@ spec:
         type: string
         description: The path to the desired new file
       content:
-        title: JSON
+        title: Content
         type: string
-        description: JSON to merge in
-        ui:widget: textarea
-        ui:options:
-          rows: 10
-        ui:placeholder: |
-          {"hello": "world"}
+        description: content to merge in
   steps:
     - id: fetch-repo
       name: Fetch repo
@@ -44,7 +39,7 @@ spec:
         url: 'https://github.com/${{ parameters.org }}/${{ parameters.repository }}'
     - id: merge
       name: Merge JSON
-      action: roadiehq:utils:json:merge
+      action: roadiehq:utils:merge
       input:
         path: ${{ parameters.path }}
         content: ${{ parameters.content }}
