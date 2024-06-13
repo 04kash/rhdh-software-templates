@@ -11,7 +11,7 @@ spec:
 
   parameters: []
   steps:
-    - id: jsondata
+    - id: jsonata
       name: Parse File
       action: roadiehq:utils:jsonata
       input:
@@ -19,9 +19,7 @@ spec:
           items:
             - item1
         expression: '$ ~> | $ | { "items": [items, "item2"] }|'
-  
   output:
     text:
-      - title: custom title
-        content: ${{ steps.jsondata.output.result }}
-
+      - title: Output from roadiehq:utils:jsonata
+        content: ${{ steps.jsonata.output.result }}
