@@ -18,6 +18,6 @@ spec:
           hello: world
     - id: Log
       name: log output
-      action: log:debug
+      action: debug:log
       input:
         message: ${{ steps.serialize.output.serialized }}
