@@ -9,33 +9,8 @@ spec:
   owner: roadie
   type: service
 
-  parameters:
-    - title: Repository Information
-      properties:
-        repository:
-          title: Repository name
-          type: string
-          description: The name of the repository
-        org:
-          title: Repository Organization
-          type: string
-          description: The Github org that the repository is in
-        pr_branch:
-          title: PR Branch
-          type: string
-          description: The new branch to make a pr from
-    - title: File Details
-      properties:
-        filePath:
-          title: Enter File Path
-          type: string
-          description: Provide the path to the file where the JSON data should be written.
+  parameters: []
   steps:
-    - id: fetch-repo
-      name: Fetch repo
-      action: fetch:plain
-      input:
-        url: https://github.com/${{ parameters.org }}/${{ parameters.repository }}
     - id: jsonata
       name: Parse File
       action: roadiehq:utils:jsonata
@@ -44,25 +19,9 @@ spec:
           items:
             - item1
         expression: '$ ~> | $ | { "items": [items, "item2"] }|'
+  
+  output:
+    text:
+      - title: custom title
+        content: ${{ steps.serialize.output.content }}
 
-    - id: write-to-file
-      name: Overwrite File Or Create New
-      action: roadiehq:utils:fs:write
-      input:
-        path: ${{ parameters.path }}
-        content: ${{ steps.jsonata.output.result }}
-    
-    - id: publish-pr
-      name: Publish PR
-      action: publish:github:pull-request
-      input:
-        repoUrl: github.com?repo=${{ parameters.repository }}&owner=${{ parameters.org }}
-        branchName: ${{ parameters.pr_branch }}
-        title: Write content to ${{ parameters.path }}
-        description: This PR was created by a Backstage scaffolder task
-        
-    - id: log-message
-      name: Log PR URL
-      action: debug:log
-      input:
-        message: 'RemoteURL: ${{ steps["publish-pr"].output.remoteUrl }}'
