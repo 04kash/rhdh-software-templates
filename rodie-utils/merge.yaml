@@ -4,7 +4,7 @@ kind: Template
 metadata:
   name: merge-template
   title: Merge Content 
-  description: Merge in some content to an existing file and open a pull request for it.
+  description: Merge in some content to an existing file.
 spec:
   owner: roadie
   type: service
@@ -19,10 +19,6 @@ spec:
         title: Repository Organization
         type: string
         description: The Github org that the repository is in
-      pr_branch:
-        title: PR Branch
-        type: string
-        description: The new branch to make a pr from
       path:
         title: Path
         type: string
@@ -43,16 +39,13 @@ spec:
       input:
         path: ${{ parameters.path }}
         content: ${{ parameters.content }}
-    - id: publish-pr
-      name: Publish PR
-      action: publish:github:pull-request
+    - id: parse
+      name: Parse contents of the file
+      action: roadiehq:utils:fs:parse
       input:
-        repoUrl: github.com?repo=${{ parameters.repository }}&owner=${{ parameters.org }}
-        branchName: ${{ parameters.pr_branch }}
-        title: Merge JSON into ${{ parameters.path }}
-        description: This PR was created by a Backstage scaffolder task
+        path: ${{ parameters.path }}
     - id: log-message
-      name: Log PR URL
+      name: Log contents of the file
       action: debug:log
       input:
-        message: 'RemoteURL: ${{ steps["publish-pr"].output.remoteUrl }}'
+        message: 'File contents: ${{ steps["parse"].output.content }}'
