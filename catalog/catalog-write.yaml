@@ -1,0 +1,34 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: register-component
+  title: Register existing component to Software Catalog
+  description: Registers existing component (GitHub repository) to Software Catalog
+  tags:
+    - import
+    - catalog
+    - register
+spec:
+  owner: janus-authors
+  system: janus-idp
+  type: service
+
+  parameters: []
+
+  steps:
+  - action: catalog:write
+    id: create-catalog-info-file
+    name: Create catalog file
+    input:
+      entity:
+        apiVersion: backstage.io/v1alpha1
+        kind: Component
+        metadata:
+          name: test
+          annotations: {}
+        spec:
+          type: service
+          lifecycle: production
+          owner: default/owner
+
+
