@@ -49,3 +49,8 @@ spec:
       action: debug:log
       input:
         message: 'File contents: ${{ steps["parse"].output.content }}'
+    - id: log-message
+      name: List files in the workspace
+      action: debug:log
+      input:
+        listWorkspace: true
