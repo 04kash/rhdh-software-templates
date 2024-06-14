@@ -27,7 +27,7 @@ spec:
       action: roadiehq:utils:jsonata
       input:
         data: ${{parameters.inputData}}
-        expression: '$'
+        expression: '$ ~> | $ | { "items": [items, "item2"] }|'
   output:
     text:
       - title: Output from roadiehq:utils:jsonata
