@@ -20,9 +20,7 @@ spec:
           ui:options:
             rows: 10
           ui:placeholder: |
-           {
-  "items": ["item1"]
-}
+           {"hello":"world"}
 
   steps:
     - id: jsonata
@@ -30,12 +28,7 @@ spec:
       action: roadiehq:utils:jsonata
       input:
         data: ${{parameters.inputData}}
-        expression: $ ~> |  # Convert to array if not already one
-{  
-  "items": $ | map(i => i + " (modified)"),  # Modify each item in "items" array
-  "count": length($)  # Add a new key "count" with the number of items
-}
-'
+        expression: '$'
   output:
     text:
       - title: Output from roadiehq:utils:jsonata
