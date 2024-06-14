@@ -20,7 +20,10 @@ spec:
           ui:options:
             rows: 10
           ui:placeholder: |
-            {"hello": "world"}
+           {
+  "items": ["item1"]
+}
+
   steps:
     - id: jsonata
       name: Parse File
