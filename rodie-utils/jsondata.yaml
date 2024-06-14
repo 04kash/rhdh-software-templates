@@ -27,7 +27,12 @@ spec:
       action: roadiehq:utils:jsonata
       input:
         data: ${{parameters.inputData}}
-        expression: '$ ~> | $ | { "items": [items, "item2"] }|'
+        expression: $ ~> |  # Convert to array if not already one
+{  
+  "items": $ | map(i => i + " (modified)"),  # Modify each item in "items" array
+  "count": length($)  # Add a new key "count" with the number of items
+}
+'
   output:
     text:
       - title: Output from roadiehq:utils:jsonata
