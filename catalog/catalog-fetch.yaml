@@ -31,5 +31,6 @@ spec:
       - title: "EntityRef provided:"
         content: ${{parameters.entityReference}}
       - title: "Entity Requested:"
-        content: ${{steps.fetch.output.entity}}
+        content: |
+          ${{steps.fetch.output.entity}}
 
