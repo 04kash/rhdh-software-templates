@@ -21,7 +21,7 @@ spec:
           description: Entity reference of the entity to get
   
   steps:
-    - id: fetch-entity
+    - id: fetchEntity
       name: Fetch catalog entity
       action: catalog:fetch
       input:
@@ -30,7 +30,7 @@ spec:
   output:
     text:
       - title: "EntityRef provided:"
-        content: ${{steps.fetch-entity.input.entityRef}}
+        content: ${{steps.fetchEntity.input.entityRef}}
       - title: "Entity Requested:"
-        content: ${{steps.fetch-entity.output.entity}}
+        content: ${{steps.fetchEntity.output.entity}}
 
