@@ -21,14 +21,15 @@ spec:
           description: Entity reference of the entity to get
   
   steps:
-    id: fetch-entity
-    name: Fetch catalog entity
-    action: catalog:fetch
-    input:
-      entityRef: ${{parameters.entityReference}}
+    - id: fetch-entity
+      name: Fetch catalog entity
+      action: catalog:fetch
+      input:
+        entityRef: ${{parameters.entityReference}}
   
   output:
     text:
-      - title: 'Entity Requested:'
-        content: ${steps.fetch-entity.output.entity}
+      - title: "Entity Requested:"
+        content: 
+          ${steps.fetch-entity.output.entity}
 
