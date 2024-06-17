@@ -33,5 +33,5 @@ spec:
         content: ${{parameters.entityReference}}
       - title: "Entity Requested:"
         content: |
-          ${{steps.fetch.output.metadata.name}}
+          ${{steps.fetch.output.entity.metadata.name}}
 
