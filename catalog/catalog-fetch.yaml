@@ -33,5 +33,7 @@ spec:
         content: ${{parameters.entityReference}}
       - title: "Entity Requested:"
         content: |
-          ${{steps.fetch.output.entity.metadata.name}}
+          'Kind: ${{steps.fetch.output.entity.kind}}'
+          'Name: ${{steps.fetch.output.entity.metadata.name}}'
+          'Type:  ${{steps.fetch.output.entity.spec.type}}'
 
