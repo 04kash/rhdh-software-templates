@@ -16,9 +16,10 @@ spec:
   parameters: []
 
   steps:
-  - action: catalog:write
-    id: create-catalog-info-file
+
+  - id: create-catalog-info-file
     name: Create catalog file
+    action: catalog:write
     input:
       entity:
         apiVersion: backstage.io/v1alpha1
