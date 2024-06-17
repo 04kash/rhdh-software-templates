@@ -26,11 +26,17 @@ spec:
       action: catalog:fetch
       input:
         entityRef: ${{parameters.entityReference}}
+    - id: serialize
+      name: Serialize 
+      action: roadiehq:utils:serialize:yaml
+      input:
+        data: |
+          ${{steps.fetch.output.entity}}
   output:
     text:
       - title: "EntityRef provided:"
         content: ${{parameters.entityReference}}
       - title: "Entity Requested:"
         content: |
-          ${{steps.fetch.output.entity}}
+          ${{steps.serialize.output.serialized}}
 
