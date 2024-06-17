@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: register-component
-  title: Register existing component to Software Catalog
-  description: Registers existing component (GitHub repository) to Software Catalog
+  name: write-catalog-info
+  title: Writes the catalog-info file for a given Entity
+  description: Writes the catalog-info file for a given Entity
   tags:
     - import
     - catalog
@@ -30,5 +30,26 @@ spec:
           type: service
           lifecycle: production
           owner: default/owner
+  
+  - id: parse
+    name: read file
+    action: roadiehq:utils:fs:parse
+    input:
+      path: ./catalog-info.yaml
+      parser: yaml
+
+  - id: serialize
+    name: Serialize
+    action: roadiehq:utils:serialize:yaml
+    input:
+      data: ${{ steps['parse'].output.content }}
+
+  - id: log
+    name: Console.log
+    action: debug:log
+    input:
+      message: |
+        Content: `${{ steps['serialize'].output.serialized }}`
+
 
 
