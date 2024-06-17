@@ -26,12 +26,6 @@ spec:
       action: catalog:fetch
       input:
         entityRef: ${{parameters.entityReference}}
-    - id: log
-      name: Log Entity
-      action: debug:log
-      input:
-        message: ${{steps.fetch.output.entity}}
-  
   output:
     text:
       - title: "EntityRef provided:"
