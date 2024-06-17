@@ -19,6 +19,9 @@ spec:
           title: Entity reference
           type: string
           description: Entity reference of the entity to get
+          ui:field: EntityPicker
+          ui:options:
+             allowArbitraryValues: true
   
   steps:
     - id: fetch
