@@ -29,6 +29,9 @@ spec:
   
   output:
     text:
+      - title: "EntityRef provided:"
+        content: 
+          ${{steps.fetch-entity.input.entityRef}}
       - title: "Entity Requested:"
         content: 
           ${{steps.fetch-entity.output.entity}}
