@@ -31,5 +31,5 @@ spec:
     text:
       - title: "Entity Requested:"
         content: 
-          ${steps.fetch-entity.output.entity}
+          ${{steps.fetch-entity.output.entity}}
 
