@@ -17,28 +17,21 @@ spec:
   parameters:
     - title: Catalog Entity Details
       properties:
-        entityReference: 
-          title: Entity reference
+        entityReq: 
+          title: Entity
           type: string
-          description: Entity reference of the entity to get
-          ui:field: EntityPicker
+          description: Entity to write the catalog-info.yaml file for
+          ui:widget: textarea
           ui:options:
-             allowArbitraryValues: true
+            rows: 10
 
   steps:
-
-  - id: fetch
-    name: Fetch catalog entity
-    action: catalog:fetch
-    input:
-      entityRef: ${{parameters.entityReference}}
-
   - id: create-catalog-info-file
     name: Create catalog file
     action: catalog:write
     input:
       entity: |
-         ${{steps.fetch.output.entity}}
+         ${{parameters.entityReq}}
   
   - id: parse
     name: read file
