@@ -25,7 +25,7 @@ spec:
       name: Fetch catalog entity
       action: catalog:fetch
       input:
-        entityRef: ${{parameters.entityReference}}
+        entityRef: "group:janus-authors"
   
   output:
     text:
