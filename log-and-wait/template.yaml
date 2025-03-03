@@ -7,7 +7,7 @@ metadata:
   tags:
     - recommended
 spec:
-  owner: janus-authors
+  owner: user:default/04kash
   system: janus-idp
   type: service
   parameters:
