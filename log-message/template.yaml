@@ -7,7 +7,7 @@ metadata:
   tags:
     - recommended
 spec:
-  owner: janus-authors
+  owner: user:development/guest
   system: janus-idp
   type: service
   parameters:
