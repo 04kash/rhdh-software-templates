@@ -21,9 +21,6 @@ spec:
     - ./rodie-utils/json-merge-object.yaml
     - ./rodie-utils/json-merge-string.yaml
     - ./rodie-utils/jsonata-json.yaml
-    - ./rodie-utils/jsonata-yaml.yaml
-    - ./rodie-utils/jsonata.yaml
-    - ./rodie-utils/jsondata-yaml.yaml
     - ./rodie-utils/merge.yaml
     - ./rodie-utils/serialize-json.yaml
     - ./rodie-utils/serialize-yaml.yaml
