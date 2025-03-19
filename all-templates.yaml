@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: example-all
+  description: A collection of all Backstage example templates
+spec:
+  targets:
+    - ./catalog/catalog-fetch.yaml
+    - ./catalog/catalog-register.yaml
+    - ./catalog/catalog-write.yaml
+    - ./log-and-wait/template.yaml
+    - ./file-related-actions/delete-file-template.yaml
+    - ./file-related-actions/parse-file-template.yaml
