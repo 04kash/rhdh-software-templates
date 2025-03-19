@@ -2,7 +2,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: overwrite-file-template-example
+  name: parse-file
   title: Write content to a file
   description: Write a file with the given content.
 spec:
