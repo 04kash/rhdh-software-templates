@@ -1,7 +1,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: serialize
+  name: serialize-to-json
   title: Jsonata
   description: Example template to serialize data to the JSON format
 spec:
