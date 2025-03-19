@@ -2,7 +2,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: Jsonata
+  name: Jsonata-Expression
   title: Jsonata
   description: Example template to perform a jsonata expression on input data
 spec:
