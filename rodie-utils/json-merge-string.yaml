@@ -2,7 +2,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: merge-json-template
+  name: merge-json-string
   title: Merge in JSON
   description: Merge in some JSON to an existing file and open a pull request for it.
 spec:
