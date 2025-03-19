@@ -1,7 +1,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: message-logger
+  name: log-and-wait
   title: Log a message after a specified duration of time.
   description: Writes a message into the log after waiting for a specified duration of time.
   tags:
