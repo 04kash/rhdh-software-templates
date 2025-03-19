@@ -11,3 +11,21 @@ spec:
     - ./log-and-wait/template.yaml
     - ./file-related-actions/delete-file-template.yaml
     - ./file-related-actions/parse-file-template.yaml
+    - ./file-related-actions/parse-template.yaml
+    - ./file-related-actions/rename-file-template.yaml
+    - ./file-related-actions/rename-new.yaml
+    - ./file-related-actions/rename-template.yaml
+    - ./file-related-actions/replace-template.yaml
+    - ./log-message/template.yaml
+    - ./nodejs-azure-app/template.yaml
+    - ./rodie-utils/json-merge-object.yaml
+    - ./rodie-utils/json-merge-string.yaml
+    - ./rodie-utils/jsonata-json.yaml
+    - ./rodie-utils/jsonata-yaml.yaml
+    - ./rodie-utils/jsonata.yaml
+    - ./rodie-utils/jsondata-yaml.yaml
+    - ./rodie-utils/merge.yaml
+    - ./rodie-utils/serialize-json.yaml
+    - ./rodie-utils/serialize-yaml.yaml
+    - ./rodie-utils/sleep.yaml
+    - ./rodie-utils/zip.yaml
